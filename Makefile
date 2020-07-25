@@ -7,14 +7,14 @@ BINDIR := bin
 COVDIR := coverage
 TESTTARGET := $(BINDIR)/tests
 TARGET := $(BINDIR)/app
-SRCEXT := cpp
+SRCEXT := c
 MAIN:=$(SRCDIR)/main.$(SRCEXT)
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 TESTSOURCES := $(shell find $(TESTSRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 CFLAGS := -g # -Wall
 LIB := #-pthread -lmongoclient -L lib -lboost_thread-mt -lboost_filesystem-mt -lboost_system-mt
-INC := -I include
+INC := -I $(SRCDIR)/model -I include 
 
 $(TARGET): clean $(OBJECTS)
 	@echo " Linking"; 
