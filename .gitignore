@@ -75,6 +75,10 @@ lib/*
 # Ignore any executables
 bin/*
 
+# Ignore doctest data
+*.gcda
+*.gcno
+
 # Ignore coverage data
 coverage/*
 

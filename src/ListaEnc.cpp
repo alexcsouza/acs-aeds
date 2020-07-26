@@ -1,11 +1,11 @@
-#ifndef LISTA_ENC_C
-#define LISTA_ENC_C
+#ifndef LISTA_ENC_CPP
+#define LISTA_ENC_CPP
 
 
 #include <stdio.h> 
 #include <stdlib.h>
 
-#include "Item.c"
+#include "Item.cpp"
 
 #define INICIO_ARRANJO   0
 #define TAMANHO_MAXIMO   1000

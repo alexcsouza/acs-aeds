@@ -1,6 +1,5 @@
-#ifndef ITEM_C
-#define ITEM_C
-
+#ifndef ITEM_CPP
+#define ITEM_CPP
 
 #include <stdio.h> 
 #include <stdlib.h>
@@ -12,6 +11,5 @@ typedef struct {
     Chave chave;
     Apontador objeto;
 } Item;
-
 
 #endif

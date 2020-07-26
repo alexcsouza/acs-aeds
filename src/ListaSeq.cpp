@@ -1,11 +1,12 @@
-#ifndef LISTA_SEC_C
-#define LISTA_SEC_C
+#ifndef LISTA_SEC_CPP
+#define LISTA_SEC_CPP
 
 
 #include <stdio.h> 
 #include <stdlib.h>
 
-#include "Item.c"
+
+#include "Item.cpp"
 
 #define INICIO_ARRANJO   0
 #define TAMANHO_MAXIMO   1000
@@ -18,6 +19,11 @@ typedef struct {
     Apontador primeiro, ultimo;
 } ListaSeq;
 
+
+ListaSeq * criarLista(){
+    return (ListaSeq * ) malloc(sizeof(ListaSeq));
+}
+
 /**
  * Torna a lista vazia.
  */
@@ -29,8 +35,8 @@ void esvaziarLista(ListaSeq *lista){
 /**
  * Verifica se a lista está vazia
  */
-int isListaVazia(const ListaSeq *lista){
-    return (lista->primeiro == lista->ultimo);
+int isListaVazia(const ListaSeq lista){
+    return (lista.primeiro == lista.ultimo);
 }
 
 /**
@@ -64,7 +70,7 @@ void inserirNaPosicao(int pos, Item item, ListaSeq lista){
 
 void removerDaPosicao(int pos, Item item, ListaSeq lista){
     
-    if((pos >= TAMANHO_MAXIMO) || (pos < 0) || isListaVazia(&lista)){
+    if((pos >= TAMANHO_MAXIMO) || (pos < 0) || isListaVazia(lista)){
         printf(MSG_POSICAO_INEXISTENTE);
     }
         

@@ -1,16 +1,14 @@
-#ifndef OBJETO_C
-#define OBJETO_C
-
+#ifndef OBJETO_CPP
+#define OBJETO_CPP
 
 #include <stdio.h> 
 #include <stdlib.h>
 
-#include "Item.c"
+#include "Item.cpp"
 
 typedef struct {
     Item item;
     
 } Objeto;
-
 
 #endif
