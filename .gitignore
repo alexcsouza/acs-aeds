@@ -69,7 +69,7 @@ bb.out.*
 
 
 # Ignore the build and lib dirs
-build
+build/*
 lib/*
 
 # Ignore any executables
