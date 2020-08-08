@@ -4,7 +4,7 @@
 #include <stdio.h> 
 #include <stdlib.h>
 
-#include "Console.cpp"
+#include "Console.h"
 
 typedef int Chave;
 typedef int Apontador;

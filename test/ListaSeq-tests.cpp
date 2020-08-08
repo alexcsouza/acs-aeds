@@ -1,6 +1,8 @@
 #ifndef LISTA_SEQ_TESTS_CPP
 #define LISTA_SEQ_TESTS_CPP
 
+#include <errno.h> 
+
 #include "../include/doctest.h"
 #include "../src/ListaSeq.cpp"
 
@@ -8,11 +10,13 @@
 TEST_CASE("Testando a criação de uma nova lista sequencial."){
     ListaSeq * listaSeq = criarLista();
     CHECK_NOTHROW(criarLista());
+    CHECK_EQ(errno, 0);
 }
 
 TEST_CASE("Testando a validação de lista vazia quando realmente está."){
     ListaSeq * listaSeq = criarLista();
     CHECK_EQ(isListaVazia(listaSeq), 1);
+    CHECK_EQ(errno, 0);
 }
 
 TEST_CASE("Testando a validação de lista vazia quando NÃO está."){
@@ -21,8 +25,9 @@ TEST_CASE("Testando a validação de lista vazia quando NÃO está."){
     inserirNoFinal(item1, listaSeq);
 
     CHECK_EQ(isListaVazia(listaSeq), 0);
+    CHECK_EQ(errno, 0);
+    
 }
-
 
 TEST_CASE("Testando a remoção de um item já inserido da posição correspondente."){
 
@@ -47,14 +52,9 @@ TEST_CASE("Testando a remoção de um item já inserido da posição corresponde
 
     CHECK_EQ(listaSeq->itens[3].chave, 5);
     CHECK_EQ(listaSeq->itens[2].chave, 3);
-
+    CHECK_EQ(errno, 0);
+    
 }
 
-
-// TEST_CASE("Testando conversão de Fahrenheit para Celsius"){
-//     CHECK(toFahrenheit(5.00)==41);
-//     CHECK(toFahrenheit(0.00)==32);
-//     CHECK(toFahrenheit(-17.7777)==doctest::Approx(0).epsilon(0.001));
-// }
 
 #endif

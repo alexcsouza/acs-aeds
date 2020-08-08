@@ -1,15 +1,26 @@
 #ifndef MAIN_CPP
 #define MAIN_CPP
-
+#define CONSOLE_COMPLETO_CPP
 
 #include <stdio.h> 
 #include <stdlib.h>
 
+
 //#include "ListaEnc.c"
 #include "ListaSeq.cpp"
+#include "Console.h"
 
 
 int main(int argc, char* argv[]){
+
+    if(argv[0] == "--silent"){
+        #include "ConsoleSilencioso.cpp"
+    }else{
+        #include "ConsoleCompleto.cpp"
+    }
+
+    erro("teste");
+
     //printf("[App] %d %s",argc ,*argv);
 /*
     ListaSeq * lista = (ListaSeq * ) malloc(sizeof(ListaSeq));
@@ -27,6 +38,7 @@ int main(int argc, char* argv[]){
     imprimirItens(lista);
 
 */
+    
 
     return 0;
 }

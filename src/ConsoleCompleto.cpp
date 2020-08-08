@@ -1,22 +1,26 @@
-#ifndef CONSOLE_CPP
-#define CONSOLE_CPP
-
+#ifndef CONSOLE_COMPLETO_CPP
+#define CONSOLE_COMPLETO_CPP
 
 #include <stdio.h> 
 #include <stdlib.h>
 #include <string.h>
 
-#define INICIO_COR_ERRO    "\033[38;5;196m"
-#define INICIO_COR_AVISO   "\033[38;5;214m"
-#define INICIO_COR_SUCESSO "\033[38;5;119m"
-#define INICIO_COR_INFO    "\033[38;5;39m"
-#define INICIO_COR_DEBUG   "\033[38;5;244m"
-#define FIM_COR            "\033[0m"
+#include "Console.h"
 
-#define TAMANHO_MAXIMO_MENSAGEM 150
+// #define INICIO_COR_ERRO    "\033[38;5;196m"
+// #define INICIO_COR_AVISO   "\033[38;5;214m"
+// #define INICIO_COR_SUCESSO "\033[38;5;119m"
+// #define INICIO_COR_INFO    "\033[38;5;39m"
+// #define INICIO_COR_DEBUG   "\033[38;5;244m"
+// #define FIM_COR            "\033[0m"
+
+// #define PREFIXO_DEBUG "[ DEBUG ] "
+
+// #define TAMANHO_MAXIMO_MENSAGEM 150
 
 
 void error(const char * string){
+    
     char s[TAMANHO_MAXIMO_MENSAGEM] = {};
     strcat(s, INICIO_COR_ERRO);
     strcat(s, "[ ERROR ] ");
@@ -24,8 +28,10 @@ void error(const char * string){
     strcat(s, string);
     strcat(s, "%s\n");
     printf(s,"");
-}
+    
 
+}
+/*
 void error(const char * string, const int param1){
     char s[TAMANHO_MAXIMO_MENSAGEM] = {};
     strcat(s, INICIO_COR_ERRO);
@@ -35,7 +41,7 @@ void error(const char * string, const int param1){
     strcat(s, "\n");
     printf(s, param1);
 }
-
+*/
 void warn(const char * string){
     char s[TAMANHO_MAXIMO_MENSAGEM] = {};
     strcat(s, INICIO_COR_AVISO);
@@ -99,33 +105,19 @@ void success(const char * string, const int param1){
 
 
 void debug(const char * string){
-    char s[TAMANHO_MAXIMO_MENSAGEM] = {};
-    strcat(s, INICIO_COR_DEBUG);
-    strcat(s, "[ DEBUG ] ");
-    strcat(s, FIM_COR);
-    strcat(s, string);
-    strcat(s, "%s\n");
-    printf(s,"");
+    printf("%s%s%s%s\n", INICIO_COR_DEBUG, PREFIXO_DEBUG, FIM_COR, string);
 }
 
 void debug(const char * string, const int param1){
-    char s[TAMANHO_MAXIMO_MENSAGEM] = {};
-    strcat(s, INICIO_COR_DEBUG);
-    strcat(s, "[ DEBUG ] ");
-    strcat(s, FIM_COR);
-    strcat(s, string);
-    strcat(s, "\n");
-    printf(s, param1);
+    printf("%s%s%s", INICIO_COR_DEBUG, PREFIXO_DEBUG, FIM_COR);
+    printf(string,param1);
+    printf("\n");
 }
 
 void debug(const char * string, const int param1, const int param2){
-    char s[TAMANHO_MAXIMO_MENSAGEM] = {};
-    strcat(s, INICIO_COR_DEBUG);
-    strcat(s, "[ DEBUG ] ");
-    strcat(s, FIM_COR);
-    strcat(s, string);
-    strcat(s, "\n");
-    printf(s, param1, param2);
+    printf("%s%s%s", INICIO_COR_DEBUG, PREFIXO_DEBUG, FIM_COR);
+    printf(string, param1, param2);
+    printf("\n");
 }
 
 

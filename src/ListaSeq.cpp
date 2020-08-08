@@ -7,7 +7,7 @@
 
 
 #include "Item.cpp"
-#include "Console.cpp"
+#include "Console.h"
 
 #define INICIO_ARRANJO   0
 #define TAMANHO_MAXIMO   1000
